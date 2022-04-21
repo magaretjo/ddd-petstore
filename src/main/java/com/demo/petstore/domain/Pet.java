@@ -53,8 +53,8 @@ public abstract class Pet {
 		energy = energy + 1;
 	}
 
-	public void save(){
-		Repository repository = PetstoreApplication.getApplicationContext().getBean(Repository.class);
+	public void save(PetRepository repository){
+		// Repository repository = PetstoreApplication.getApplicationContext().getBean(Repository.class);
 		repository.save(this);
 	}
 

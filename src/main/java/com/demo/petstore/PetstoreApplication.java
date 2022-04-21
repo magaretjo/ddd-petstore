@@ -2,6 +2,7 @@ package com.demo.petstore;
 
 import com.demo.petstore.domain.Dog;
 import com.demo.petstore.domain.Pet;
+import com.demo.petstore.domain.PetRepository;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +18,7 @@ public class PetstoreApplication {
 
 	public static void main(String[] args) {
 		applicationContext = SpringApplication.run(PetstoreApplication.class, args);
+		PetRepository repository = PetstoreApplication.getApplicationContext().getBean(PetRepository.class);
 
 		Pet dog = new Dog();   // new Cat();
 		dog.setName("뽀삐");
@@ -34,7 +36,7 @@ public class PetstoreApplication {
 
 		System.out.println(dog);
 
-		dog.save();
+		dog.save(repository);
 
 	}
 
